@@ -11,5 +11,4 @@ app.template_folder = './templates'
 # this makes the most since, because the webpage that is going to be displayed on the screen will be automatically displayed, so any url works, thus meaning that the easy root url should be reserved for the admin
 @app.route('/', methods = ['GET', 'POST'])
 def flaskServeHomepage():
-
-    return ''
+    return flask.render_template('index.html', pageTitle = 'Home')

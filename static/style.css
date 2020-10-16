@@ -1,0 +1,9 @@
+/*override the default font family that is used by bootstrap for the neumorphism font*/
+/*set the background and foreground to dark mode colors*/
+@font-face{font-family:'NUNITOSANS';src:url('./nunitosans-semibold.ttf');}
+body{font-family:'NUNITOSANS' !important;background-color:white !important;color:#777784 !important;}
+
+#header{width:100%;min-height:50px;height:auto;display:flex;margin:0;padding:0;}
+#header-title{font-size:40px;margin:0;padding:0;margin-left:10px;}
+#header-icons-float-right{height:100%;width:auto;margin-left:auto;margin-right:0;}
+.header-icons{height:60px;width:auto;display:inline-block;} /*theres virtually no way to have this scale automatically so I just hardcoded the height to 60px*/
