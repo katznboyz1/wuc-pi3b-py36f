@@ -8,11 +8,12 @@ body{font-family:'DEFAULT_CUSTOM_FONT' !important;background-color:#f9fbfe !impo
 #header-icons-float-right{height:100%;width:auto;margin-left:auto;margin-right:0;}
 .header-icons{height:60px;width:auto;display:inline-block;} /*theres virtually no way to have this scale automatically so I just hardcoded the height to 60px*/
 
-#index-clock-container{width:500px;height:500px;border-radius:50%;background-color:#ecedf0;margin-left:calc(50vw - 250px);display:inline-block;margin-top:5%;} /*padding top makes the aspect ratio 1:1 by using the width for the height*/
-@media only screen and (max-width:500px) {
+#index-clock-container{width:500px;height:500px;border-radius:50%;background-color:#ecedf0;margin-left:calc(50vw - 250px);display:flex;margin-top:5%;justify-content:center;align-items:center;} /*padding top makes the aspect ratio 1:1 by using the width for the height*/
+#index-clock-text{width:100%;text-align:center;display:inline-block;vertical-align:middle;font-size:30px;}
+@media only screen and (max-width:550px) { /*widths below 550 px require a resize of the button, widths below 250px just simply arent supported*/
     #index-clock-container{width:250px;height:250px;margin-left:calc(50vw - 125px)}
+    #index-clock-text{font-size:15px;}
 }
-#index-clock-text{width:100%;text-align:center;display:inline-block;}
 
 /*use multiple box shadows to create a gradient (third argument is blur radius)*/
 .shadow{
