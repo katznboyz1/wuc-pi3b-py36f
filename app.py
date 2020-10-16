@@ -30,3 +30,20 @@ def flaskServeSettingsAPI():
 
     # return a 200 status code and a json response thats just a 200
     return '[200]', 200
+
+@app.route('/settingsAPIDownload.json', methods = ['POST'])
+def flaskServeSettingsAPIDownload():
+    
+    response = {
+        'analogMode':False,
+        'darkMode':False,
+    }
+
+    databaseCursor = sqlite3.connect('./main.db').cursor()
+    databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('darkMode',))
+    response['darkMode'] = True if str(databaseCursor.fetchall()[0][0]) == '1' else False
+    databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('analogMode',))
+    response['analogMode'] = True if str(databaseCursor.fetchall()[0][0]) == '1' else False
+
+    # return a 200 status code and a json response thats just a 200
+    return json.dumps(response), 200
