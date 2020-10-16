@@ -1,6 +1,6 @@
 /*override the default font family that is used by bootstrap for the neumorphism font*/
 /*set the background and foreground to dark mode colors*/
-@font-face{font-family:'NUNITOSANS';src:url('./nunitosans-semibold.ttf');}
+@font-face{font-family:'NUNITOSANS';src:url('./nunitosans-light.ttf');}
 body{font-family:'NUNITOSANS' !important;background-color:white !important;color:#1f2f47 !important;}
 
 #header{width:100%;min-height:50px;height:auto;display:flex;margin:0;padding:0;}
