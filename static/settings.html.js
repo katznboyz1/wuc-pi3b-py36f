@@ -8,7 +8,10 @@ function sendSettingsUpdateRequest() {
         'url':'/settingsAPI',
         'dataType':'json',
         'contentType':'application/json',
-        'data':JSON.stringify({}),
+        'data':JSON.stringify({
+            'analogMode':document.getElementById('settings-analog-mode-toggle').checked,
+            'darkMode':document.getElementById('settings-dark-mode-toggle').checked
+        }),
         'error':sendSettingsUpdateRequestError,
         'timeout':1000, //make sure that if the server is down then this will fail
         'beforeSend':function() {

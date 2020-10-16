@@ -1,4 +1,4 @@
-import flask
+import flask, json, sqlite3
 
 # the basic configuration for the app
 app = flask.Flask(__name__)
@@ -22,4 +22,11 @@ def flaskServeSettings():
 # returns the status code in the body, as well as the normal status code
 @app.route('/settingsAPI', methods = ['POST'])
 def flaskServeSettingsAPI():
+
+    databaseConnection = sqlite3.connect('./main.db')
+    databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', ('1' if flask.request.json['darkMode'] else '0', 'darkMode'))
+    databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', ('1' if flask.request.json['analogMode'] else '0', 'analogMode'))
+    databaseConnection.commit()
+
+    # return a 200 status code and a json response thats just a 200
     return '[200]', 200
