@@ -18,6 +18,9 @@ body{font-family:'DEFAULT_CUSTOM_FONT' !important;background-color:#f9fbfe !impo
 #header-icons-float-right{height:100%;width:auto;margin-left:auto;margin-right:0;}
 .header-icons{height:60px;width:auto;display:inline-block;} /*theres virtually no way to have this scale automatically so I just hardcoded the height to 60px*/
 
+#loading-screen{position:fixed;top:0px;left:0px;width:100vw;height:100vh;background-color:rgba(0, 0, 0, 0.3);display:none;}
+#loading-screen-gif{width:20%;height:auto;max-width:300px;top:50vh;left:50vw;transform:translate(-50%, -50%);position:absolute;}
+
 #index-clock-container{margin-top:calc(50vh - 60px);margin-left:50vw;transform:translate(-50%, -50%);width:var(--index-clock-container-size);height:var(--index-clock-container-size);border-radius:50%;background-color:#ecedf0;background:linear-gradient(#ecedf0, var(--homepage-toggle-button-daytime-color));display:flex;justify-content:center;align-items:center;} /*padding top makes the aspect ratio 1:1 by using the width for the height*/
 #index-clock-text{width:100%;text-align:center;display:inline-block;vertical-align:middle;font-size:45px;color:var(--homepage-toggle-button-text-color);margin:0;padding:0;}
 @media only screen and (max-width:550px) { /*widths below 550 px require a resize of the button, widths below 250px just simply arent supported*/

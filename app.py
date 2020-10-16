@@ -17,3 +17,9 @@ def flaskServeHomepage():
 @app.route('/settings', methods = ['GET', 'POST'])
 def flaskServeSettings():
     return flask.render_template('settings.html', pageTitle = 'Settings')
+
+# the api for the settings page (used to update settings) (post only)
+# returns the status code in the body, as well as the normal status code
+@app.route('/settingsAPI', methods = ['POST'])
+def flaskServeSettingsAPI():
+    return '[200]', 200
