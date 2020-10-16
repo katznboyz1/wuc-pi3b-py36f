@@ -15,9 +15,9 @@ body{font-family:'DEFAULT_CUSTOM_FONT' !important;background-color:#f9fbfe !impo
 .header-icons{height:60px;width:auto;display:inline-block;} /*theres virtually no way to have this scale automatically so I just hardcoded the height to 60px*/
 
 #index-clock-container{margin-top:calc(50vh - 60px);margin-left:50vw;transform:translate(-50%, -50%);width:var(--index-clock-container-size);height:var(--index-clock-container-size);border-radius:50%;background-color:#ecedf0;background:linear-gradient(#ecedf0, var(--homepage-toggle-button-daytime-color));display:flex;justify-content:center;align-items:center;} /*padding top makes the aspect ratio 1:1 by using the width for the height*/
-#index-clock-text{width:100%;text-align:center;display:inline-block;vertical-align:middle;font-size:30px;color:var(--homepage-toggle-button-text-color);}
+#index-clock-text{width:100%;text-align:center;display:inline-block;vertical-align:middle;font-size:45px;color:var(--homepage-toggle-button-text-color);}
 @media only screen and (max-width:550px) { /*widths below 550 px require a resize of the button, widths below 250px just simply arent supported*/
-    #index-clock-text{font-size:15px;}
+    #index-clock-text{font-size:30px;}
     #index-clock-container{--index-clock-container-size:250px;}
 }
 
