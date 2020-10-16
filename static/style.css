@@ -9,8 +9,12 @@
 @font-face{font-family:'DEFAULT_CUSTOM_FONT';src:url('./adlinnaka-bold.ttf');}
 body{font-family:'DEFAULT_CUSTOM_FONT' !important;background-color:#f9fbfe !important;color:#31456a !important;overflow-x:hidden;overflow-y:scroll;}
 
+.normal-left-margin{margin-left:10px !important;}
+
+.page-top-margin{margin-top:30px !important;} /*needs to be !important to overwrite any existing margins*/
+
 #header{width:100%;min-height:50px;height:auto;display:flex;margin:0;padding:0;}
-#header-title{font-size:25px;margin:0;padding:0;margin-left:10px;margin-top:auto;margin-bottom:auto;}
+#header-title{font-size:25px;margin:0;padding:0;margin-top:auto;margin-bottom:auto;}
 #header-icons-float-right{height:100%;width:auto;margin-left:auto;margin-right:0;}
 .header-icons{height:60px;width:auto;display:inline-block;} /*theres virtually no way to have this scale automatically so I just hardcoded the height to 60px*/
 
@@ -20,6 +24,21 @@ body{font-family:'DEFAULT_CUSTOM_FONT' !important;background-color:#f9fbfe !impo
     #index-clock-text{font-size:30px;}
     #index-clock-container{--index-clock-container-size:250px;}
 }
+
+.settings-page-section-title{font-size:20px;margin-bottom:0 !important;padding:0;}
+.settings-page-icon-and-toggle-pair{width:100%;height:auto;display:block;}
+.settings-page-icon-and-toggle-pair-child{display:inline-block;color:#47535a;}
+.settings-switch-justify{margin-right:10px !important;margin-top:calc((60px - 32px) / 2);float:right;} /*the calc is the total height of the div minus the height of the slider divided by two (to center it vertically)*/
+
+/*from https://www.w3schools.com/howto/howto_css_switch.asp*/
+.switch {position: relative;display: inline-block;width: 58px;height: 32px;}
+.switch input { opacity: 0;width: 0;height: 0;}
+.slider {position: absolute;cursor: pointer;top: 0;left: 0;right: 0;bottom: 0;background-color: #ccc;-webkit-transition: .4s;transition: .4s;}
+.slider:before {position: absolute;content: "";height: 28px;width: 28px;left: 2px;bottom: 2px;background-color: white;-webkit-transition: .4s;transition: .4s;}
+input:checked + .slider {background-color: #2196F3;}
+input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transform: translateX(26px);transform: translateX(26px);}
+.slider.round {border-radius: 34px;}
+.slider.round:before {border-radius: 50%;}
 
 /*use multiple box shadows to create a gradient (third argument is blur radius)*/
 .shadow{
