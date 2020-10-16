@@ -7,14 +7,14 @@
 /*override the default font family that is used by bootstrap for the neumorphism font*/
 /*set the background and foreground to dark mode colors*/
 @font-face{font-family:'DEFAULT_CUSTOM_FONT';src:url('./adlinnaka-bold.ttf');}
-body{font-family:'DEFAULT_CUSTOM_FONT' !important;background-color:#f9fbfe !important;color:#31456a !important;}
+body{font-family:'DEFAULT_CUSTOM_FONT' !important;background-color:#f9fbfe !important;color:#31456a !important;overflow-x:hidden;overflow-y:scroll;}
 
 #header{width:100%;min-height:50px;height:auto;display:flex;margin:0;padding:0;}
-#header-title{font-size:30px;margin:0;padding:0;margin-left:10px;margin-top:auto;margin-bottom:auto;}
+#header-title{font-size:25px;margin:0;padding:0;margin-left:10px;margin-top:auto;margin-bottom:auto;}
 #header-icons-float-right{height:100%;width:auto;margin-left:auto;margin-right:0;}
 .header-icons{height:60px;width:auto;display:inline-block;} /*theres virtually no way to have this scale automatically so I just hardcoded the height to 60px*/
 
-#index-clock-container{margin:0 auto;width:var(--index-clock-container-size);height:var(--index-clock-container-size);border-radius:50%;background-color:#ecedf0;background:linear-gradient(#ecedf0, var(--homepage-toggle-button-daytime-color));display:flex;margin-top:calc(20vh - 60px);justify-content:center;align-items:center;} /*padding top makes the aspect ratio 1:1 by using the width for the height*/
+#index-clock-container{margin-top:calc(50vh - 60px);margin-left:50vw;transform:translate(-50%, -50%);width:var(--index-clock-container-size);height:var(--index-clock-container-size);border-radius:50%;background-color:#ecedf0;background:linear-gradient(#ecedf0, var(--homepage-toggle-button-daytime-color));display:flex;justify-content:center;align-items:center;} /*padding top makes the aspect ratio 1:1 by using the width for the height*/
 #index-clock-text{width:100%;text-align:center;display:inline-block;vertical-align:middle;font-size:30px;color:var(--homepage-toggle-button-text-color);}
 @media only screen and (max-width:550px) { /*widths below 550 px require a resize of the button, widths below 250px just simply arent supported*/
     #index-clock-text{font-size:15px;}
