@@ -1,27 +1,25 @@
 {% extends 'layout.html' %}
 {% block body %}
-<form action = '' method = 'POST'>
-    <p class = 'normal-left-margin settings-page-section-title page-top-margin'>
-        Visuals
-    </p>
-    <div class = 'settings-page-icon-and-toggle-pair'>
-        <!--clock icon-->
-        <img class = 'header-icons settings-page-icon-and-toggle-pair-child' src = "{{ url_for('static', filename = 'neumorphism-svg/6.svg') }}"/>
-        <p class = 'settings-page-icon-and-toggle-pair-child'>Analog Mode</p>
-        <label class = 'switch settings-switch-justify'>
-            <input type = 'checkbox'/>
-            <span class = 'slider round'></span>
-        </label>
-    </div>
-    <div>
-        <!--eye icon (eyecon?)-->
-        <img class = 'header-icons settings-page-icon-and-toggle-pair-child' src = "{{ url_for('static', filename = 'neumorphism-svg/16.svg') }}"/>
-        <p class = 'settings-page-icon-and-toggle-pair-child'>Clock Dark Mode</p>
-        <label class = 'switch settings-switch-justify'>
-            <input type = 'checkbox'/>
-            <span class = 'slider round'></span>
-        </label>
-    </div>
-    <button id = 'settings-page-submit-button' class = ' page-top-margin shadow-small' type = 'submit'>UPDATE</button>
-</form>
+<p class = 'normal-left-margin settings-page-section-title page-top-margin'>
+    Visuals
+</p>
+<div class = 'settings-page-icon-and-toggle-pair'>
+    <!--clock icon-->
+    <img class = 'header-icons settings-page-icon-and-toggle-pair-child' src = "{{ url_for('static', filename = 'neumorphism-svg/6.svg') }}"/>
+    <p class = 'settings-page-icon-and-toggle-pair-child'>Analog Mode</p>
+    <label class = 'switch settings-switch-justify'>
+        <input type = 'checkbox' id = 'settings-analog-mode-toggle'/> <!--document.getElementById('settings-analog-mode-toggle').checked-->
+        <span class = 'slider round'></span>
+    </label>
+</div>
+<div>
+    <!--eye icon (eyecon?)-->
+    <img class = 'header-icons settings-page-icon-and-toggle-pair-child' src = "{{ url_for('static', filename = 'neumorphism-svg/16.svg') }}"/>
+    <p class = 'settings-page-icon-and-toggle-pair-child'>Clock Dark Mode</p>
+    <label class = 'switch settings-switch-justify'>
+        <input type = 'checkbox' id = 'settings-analog-mode-toggle'/>
+        <span class = 'slider round'></span>
+    </label>
+</div>
+<button id = 'settings-page-submit-button' class = ' page-top-margin shadow-small' type = 'submit'>UPDATE</button>
 {% endblock %}
