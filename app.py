@@ -12,3 +12,8 @@ app.template_folder = './templates'
 @app.route('/', methods = ['GET', 'POST'])
 def flaskServeHomepage():
     return flask.render_template('index.html', pageTitle = 'Home')
+
+# settings page is for actual settings, while home page is just for basic things such as on and off
+@app.route('/settings', methods = ['GET', 'POST'])
+def flaskServeSettings():
+    return flask.render_template('settings.html', pageTitle = 'Settings')

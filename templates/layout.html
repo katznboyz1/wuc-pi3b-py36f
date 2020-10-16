@@ -20,9 +20,15 @@
                 {{ pageTitle }}
             </p>
             <div id = 'header-icons-float-right'>
-                <!--home icon-->
-                <img class = 'header-icons' src = "{{ url_for('static', filename = 'neumorphism-svg/3.svg') }}"/>
-                <img class = 'header-icons' src = "{{ url_for('static', filename = 'neumorphism-svg/3.svg') }}"/>
+                <a href = "{{ url_for('flaskServeHomepage') }}">
+                    <!--home icon-->
+                    <img class = 'header-icons' src = "{{ url_for('static', filename = 'neumorphism-svg/3.svg') }}"/>
+                </a>
+                <a href = "{{ url_for('flaskServeSettings') }}">
+                    <!--settings icon-->
+                    <img class = 'header-icons' src = "{{ url_for('static', filename = 'neumorphism-svg/14.svg') }}"/>
+                </a>
+                </div>
             </div>
         </div>
         {% block body %}
