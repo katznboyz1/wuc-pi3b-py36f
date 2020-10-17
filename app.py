@@ -7,7 +7,6 @@ def getIP():
 def brightnessControlThread():
 
     # set up the pwm more for the brightness pin
-    os.system('sh -c \'echo "0" /sys/class/backlight/soc\:backlight/brightness\'')
     os.system('gpio -g mode 18 pwm')
     os.system('gpio pwmc 1000')
 
