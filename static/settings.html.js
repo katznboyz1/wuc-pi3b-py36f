@@ -9,7 +9,7 @@ function sendSettingsUpdateRequest() {
         'dataType':'json',
         'contentType':'application/json',
         'data':JSON.stringify({
-            'analogMode':document.getElementById('settings-analog-mode-toggle').checked,
+            //'analogMode':document.getElementById('settings-analog-mode-toggle').checked,
             'darkMode':document.getElementById('settings-dark-mode-toggle').checked,
             'screenFlipped':document.getElementById('settings-screen-flip-toggle').checked,
             'displayOn':document.getElementById('settings-display-on-toggle').checked,
