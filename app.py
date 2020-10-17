@@ -31,6 +31,8 @@ def flaskServeSettingsAPI():
     # return a 200 status code and a json response thats just a 200
     return '[200]', 200
 
+# the api for the settings page (used to get the settings) (post only)
+# returns the different settings' values so that the settings page can load with the proper presets
 @app.route('/settingsAPIDownload.json', methods = ['POST'])
 def flaskServeSettingsAPIDownload():
     
