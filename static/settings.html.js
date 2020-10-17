@@ -33,7 +33,7 @@ window.onload = function() {
             document.getElementById('loading-screen').style.display = 'block';
         },'complete':function(response) {
             document.getElementById('loading-screen').style.display = 'none';
-            responseJSON = response.responseJSON;
+            let responseJSON = response.responseJSON;
             document.getElementById('settings-analog-mode-toggle').checked = responseJSON['analogMode'];
             document.getElementById('settings-dark-mode-toggle').checked = responseJSON['darkMode'];
         }
