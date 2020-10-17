@@ -4,7 +4,7 @@ let clockElement = document.getElementById('index-clock-container');
 let clockTextElement = document.getElementById('index-clock-text');
 
 function networkError() {
-    alert('Server Error')
+    alert('Server Error');
 }
 
 // sends a request to the server that will either turn the clock on or off
@@ -12,6 +12,7 @@ function networkError() {
 function toggleClockOnOff(updateServer) {
     isClockOn = !isClockOn;
     clockTextElement.innerHTML = String((isClockOn) ? 'ON' : 'OFF');
+    document.documentElement.style.setProperty('--homepage-toggle-button-daytime-color', String((isClockOn) ? 'transparent' : '#4a4a4a'));
     if (updateServer) {
         $.ajax({
             'type':'POST',

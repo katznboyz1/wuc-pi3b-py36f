@@ -1,5 +1,5 @@
 function sendSettingsUpdateRequestError() {
-    alert('Server Error')
+    alert('Server Error');
 }
 
 function sendSettingsUpdateRequest() {
