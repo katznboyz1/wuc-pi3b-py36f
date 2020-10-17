@@ -41,7 +41,7 @@ window.onload = function() {
         },'complete':function(response) {
             document.getElementById('loading-screen').style.display = 'none';
             let responseJSON = response.responseJSON;
-            document.getElementById('settings-analog-mode-toggle').checked = responseJSON['analogMode'];
+            //document.getElementById('settings-analog-mode-toggle').checked = responseJSON['analogMode'];
             document.getElementById('settings-dark-mode-toggle').checked = responseJSON['darkMode'];
             document.getElementById('settings-screen-flip-toggle').checked = responseJSON['screenFlipped'];
             document.getElementById('settings-display-on-toggle').checked = responseJSON['displayOn'];
