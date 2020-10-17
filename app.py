@@ -40,6 +40,15 @@ def flaskServeSettingsAPI():
     # return a 200 status code and a json response thats just a 200
     return '[200]', 200
 
+# the api for the homepage, meant to just toggle the clock on and off
+# it takes a single value in an array [val] which is a boolean that says whether the clock is on or off
+@app.route('/clockOnOffToggleAPI', methods = ['POST'])
+def flaskServeClockOnOffToggleAPI():
+    databaseConnection = sqlite3.connect('./main.db')
+    databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', ('1' if flask.request.json[0] else '0', 'displayOn'))
+    databaseConnection.commit()
+    return '[200]', 200
+
 # the api for the settings page (used to get the settings) (post only)
 # returns the different settings' values so that the settings page can load with the proper presets
 @app.route('/settingsAPIDownload.json', methods = ['POST'])
