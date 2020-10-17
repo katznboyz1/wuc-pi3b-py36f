@@ -20,6 +20,7 @@ def brightnessControlThread():
                 os.system('gpio pwmc {}'.format(brightnessLevel * 10))
             elif (not displayOn):
                 os.system('gpio pwmc 0')
+            os.system('sudo sh -c \'echo "0" > /sys/class/backlight/soc\:backlight/brightness\'')
         except IOError:
             pass
 
