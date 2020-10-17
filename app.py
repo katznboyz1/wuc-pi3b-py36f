@@ -1,8 +1,28 @@
-import flask, json, sqlite3, socket
+import flask, json, sqlite3, socket, _thread, os, time
 
 # a function from https://stackoverflow.com/a/1267524 to get the ip address of the machine
 def getIP():
     return [l for l in ([ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.startswith("127.")][:1], [[(s.connect(('8.8.8.8', 53)), s.getsockname()[0], s.close()) for s in [socket.socket(socket.AF_INET, socket.SOCK_DGRAM)]][0][1]]) if l][0][0]
+
+def brightnessControlThread():
+
+    # set up the pwm more for the brightness pin
+    os.system('gpio -g mode 18 pwm')
+
+    while (1):
+        try:
+            databaseCursor = sqlite3.connect('./main.db').cursor()
+            databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('brightness',))
+            brightnessLevel = int(databaseCursor.fetchall()[0][0])
+            databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('displayOn',))
+            displayOn = True if str(databaseCursor.fetchall()[0][0]) == '1' else False
+            if (brightnessLevel >= 0 and brightnessLevel <= 100 and displayOn):
+                os.system('gpio pwmc {}'.format(brightnessLevel * 10))
+            elif (not displayOn):
+                os.system('gpio pwmc 0')
+        except IOError:
+            pass
+
 # the basic configuration for the app
 app = flask.Flask(__name__)
 app.config['SESSION_PERMANENT'] = True
@@ -108,3 +128,6 @@ def flaskServeSettingsAPIDownload():
 
     # return a 200 status code and a json response thats just a 200
     return json.dumps(response), 200
+
+# start the brightness control thread
+_thread.start_new_thread(brightnessControlThread, ())
