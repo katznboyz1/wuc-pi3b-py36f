@@ -11,9 +11,9 @@ if (not os.path.exists('./main.db')):
         'INSERT INTO app_config (config_data_title, config_data_content) VALUES ("brightness", "100")',
         'INSERT INTO app_config (config_data_title, config_data_content) VALUES ("screenFlipped", "0")',
         'INSERT INTO app_config (config_data_title, config_data_content) VALUES ("darkmodeBGColor", "#1d1f23")',
-        'INSERT INTO app_config (config_data_title, config_data_content) VALUES ("darkmodeFGColor", "#4e5155")',
+        'INSERT INTO app_config (config_data_title, config_data_content) VALUES ("darkmodeFGColor", "#b3b6b9")',
         'INSERT INTO app_config (config_data_title, config_data_content) VALUES ("lightmodeBGColor", "#ebecf0")',
-        'INSERT INTO app_config (config_data_title, config_data_content) VALUES ("lightmodeFGColor", "#9f9fb2")',
+        'INSERT INTO app_config (config_data_title, config_data_content) VALUES ("lightmodeFGColor", "#414150")',
     ]:
         databaseConnection.execute(action)
     databaseConnection.commit()

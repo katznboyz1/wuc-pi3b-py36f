@@ -1,5 +1,5 @@
 @font-face{font-family:'DEFAULT_CUSTOM_FONT';src:url('./notosansjp-medium.otf');}
-body{font-family:'DEFAULT_CUSTOM_FONT' !important;overflow:hidden;}
+body{font-family:'DEFAULT_CUSTOM_FONT' !important;overflow:hidden;width:100vw;height:100vh;margin:0;padding:0;}
 
 #time-date-parent-container{text-align:center;margin-top:50vh;transform:translate(0vw, -50%);}
 #time{font-size:70px;}
