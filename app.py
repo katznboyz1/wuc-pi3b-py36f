@@ -44,16 +44,41 @@ def flaskServeSettingsAPI():
 @app.route('/settingsAPIDownload.json', methods = ['POST'])
 def flaskServeSettingsAPIDownload():
     
+    # manually add that data just in case theres extra app config stuff that shouldnt be added
     response = {
-        'analogMode':False,
-        'darkMode':False,
+        'analogMode':None,
+        'darkMode':None,
+        'screenFlipped':None,
+        'brightness':None,
+        'darkmodeBGColor':None,
+        'darkmodeFGColor':None,
+        'lightmodeBGColor':None,
+        'lightmodeFGColor':None
     }
 
+    # make this iterative
     databaseCursor = sqlite3.connect('./main.db').cursor()
     databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('darkMode',))
     response['darkMode'] = True if str(databaseCursor.fetchall()[0][0]) == '1' else False
     databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('analogMode',))
     response['analogMode'] = True if str(databaseCursor.fetchall()[0][0]) == '1' else False
+    databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('screenFlipped',))
+    response['screenFlipped'] = True if str(databaseCursor.fetchall()[0][0]) == '1' else False
+    databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('brightness',))
+    # make sure that the program wont error out if the value cant be converted to an integer, and is also between 0 and 100
+    try:
+        response['brightness'] = int(databaseCursor.fetchall()[0][0])
+        assert response['brightness'] <= 100 and response['brightness'] >= 0
+    except ValueError:
+        response['brightness'] = 100
+    databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('darkmodeBGColor',))
+    response['darkmodeBGColor'] = str(databaseCursor.fetchall()[0][0])
+    databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('darkmodeFGColor',))
+    response['darkmodeFGColor'] = str(databaseCursor.fetchall()[0][0])
+    databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('lightmodeBGColor',))
+    response['lightmodeBGColor'] = str(databaseCursor.fetchall()[0][0])
+    databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('lightmodeFGColor',))
+    response['lightmodeFGColor'] = str(databaseCursor.fetchall()[0][0])
 
     # return a 200 status code and a json response thats just a 200
     return json.dumps(response), 200

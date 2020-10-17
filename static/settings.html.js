@@ -42,6 +42,12 @@ window.onload = function() {
             let responseJSON = response.responseJSON;
             document.getElementById('settings-analog-mode-toggle').checked = responseJSON['analogMode'];
             document.getElementById('settings-dark-mode-toggle').checked = responseJSON['darkMode'];
+            document.getElementById('settings-screen-flip-toggle').checked = responseJSON['screenFlipped'];
+            document.getElementById('settings-brightness-selector').value = responseJSON['brightness'];
+            document.getElementById('settings-darkmode-background-color-selector').value = responseJSON['darkmodeBGColor'];
+            document.getElementById('settings-darkmode-foreground-color-selector').value = responseJSON['darkmodeFGColor'];
+            document.getElementById('settings-lightmode-background-color-selector').value = responseJSON['lightmodeBGColor'];
+            document.getElementById('settings-lightmode-foreground-color-selector').value = responseJSON['lightmodeFGColor'];
         }
     });
 }
