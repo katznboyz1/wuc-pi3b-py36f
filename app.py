@@ -8,6 +8,7 @@ def brightnessControlThread():
 
     # set up the pwm more for the brightness pin
     os.system('gpio -g mode 18 pwm')
+    os.system('gpio pwmc 1000')
 
     while (1):
         try:
