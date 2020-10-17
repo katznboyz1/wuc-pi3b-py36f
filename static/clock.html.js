@@ -1,10 +1,14 @@
+var _24HRTime = false;
+
 function updateClock() {
     let date = new Date();
 
     // ditigal clock update
-    document.getElementById('time-hour').innerHTML = String(date.getHours());
+    document.getElementById('time-hour').innerHTML = _24HRTime ? String(date.getHours()) : String(date.getHours() % 12);
     document.getElementById('time-minute').innerHTML = String((date.getMinutes() < 10) ? '0' + String(date.getMinutes()) : date.getMinutes());
     document.getElementById('time-second').innerHTML = String((date.getSeconds() < 10) ? '0' + String(date.getSeconds()) : date.getSeconds());
+    document.getElementById('time-am-pm').innerHTML = !_24HRTime ? String((date.getHours() >= 12) ? 'PM' : 'AM') : '';
+    document.getElementById('time').style.fontSize = _24HRTime ? '20vw' : '14vw';
     document.getElementById('date').innerHTML = String(
         ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][date.getDay()] +
         ' ' +
@@ -30,6 +34,7 @@ function updateClock() {
             document.getElementById('time-date-parent-container').style.display = responseJSON['analogMode'] ? 'none' : 'block';
             document.getElementById('analog-clock').style.display = responseJSON['analogMode'] ? 'block' : 'none';
             foregroundColor = responseJSON['darkMode'] ? responseJSON['darkmodeFGColor'] : responseJSON['lightmodeFGColor'];
+            _24HRTime = responseJSON['24HRTime'];
         }
     });
 }

@@ -2,7 +2,7 @@
 body{font-family:'DEFAULT_CUSTOM_FONT' !important;overflow:hidden;width:100vw;height:100vh;margin:0;padding:0;}
 
 #time-date-parent-container{text-align:center;margin-top:50vh;transform:translate(0vw, -50%);position:absolute;top:0px;left:0px;width:100vw;}
-#time{font-size:20vw;}
+#time{font-size:14vw;}
 #date{font-size:7vw;}
 #address{font-size:15px;opacity:0.2;}
 

@@ -37,6 +37,7 @@ def flaskServeSettingsAPI():
     databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', ('1' if flask.request.json['darkMode'] else '0', 'darkMode'))
     #databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', ('1' if flask.request.json['analogMode'] else '0', 'analogMode'))
     databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', ('1' if flask.request.json['screenFlipped'] else '0', 'screenFlipped'))
+    databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', ('1' if flask.request.json['24HRTime'] else '0', '24HRTime'))
     databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', ('1' if flask.request.json['displayOn'] else '0', 'displayOn'))
     databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', (flask.request.json['brightness'], 'brightness'))
     databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', (flask.request.json['darkmodeBGColor'], 'darkmodeBGColor'))
@@ -73,6 +74,7 @@ def flaskServeSettingsAPIDownload():
         'lightmodeBGColor':None,
         'lightmodeFGColor':None,
         'displayOn':None,
+        '24HRTime':None,
         'address':getIP(),
     }
 
@@ -86,6 +88,8 @@ def flaskServeSettingsAPIDownload():
     response['screenFlipped'] = True if str(databaseCursor.fetchall()[0][0]) == '1' else False
     databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('displayOn',))
     response['displayOn'] = True if str(databaseCursor.fetchall()[0][0]) == '1' else False
+    databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('24HRTime',))
+    response['24HRTime'] = True if str(databaseCursor.fetchall()[0][0]) == '1' else False
     databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('brightness',))
     # make sure that the program wont error out if the value cant be converted to an integer, and is also between 0 and 100
     try:
