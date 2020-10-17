@@ -10,7 +10,13 @@ function sendSettingsUpdateRequest() {
         'contentType':'application/json',
         'data':JSON.stringify({
             'analogMode':document.getElementById('settings-analog-mode-toggle').checked,
-            'darkMode':document.getElementById('settings-dark-mode-toggle').checked
+            'darkMode':document.getElementById('settings-dark-mode-toggle').checked,
+            'screenFlipped':document.getElementById('settings-screen-flip-toggle').checked,
+            'brightness':document.getElementById('settings-brightness-selector').value,
+            'darkmodeBGColor':document.getElementById('settings-darkmode-background-color-selector').value,
+            'darkmodeFGColor':document.getElementById('settings-darkmode-foreground-color-selector').value,
+            'lightmodeBGColor':document.getElementById('settings-lightmode-background-color-selector').value,
+            'lightmodeFGColor':document.getElementById('settings-lightmode-foreground-color-selector').value,
         }),
         'error':sendSettingsUpdateRequestError,
         'timeout':1000, //make sure that if the server is down then this will fail

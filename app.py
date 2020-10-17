@@ -23,9 +23,17 @@ def flaskServeSettings():
 @app.route('/settingsAPI', methods = ['POST'])
 def flaskServeSettingsAPI():
 
+    # just assume that the input values are the proper ones, the worst that can happen is somebody breaks the color system which can easily be fixed
+    # this program will also be deployed in a safe network anyhow so it doesnt matter
     databaseConnection = sqlite3.connect('./main.db')
     databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', ('1' if flask.request.json['darkMode'] else '0', 'darkMode'))
     databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', ('1' if flask.request.json['analogMode'] else '0', 'analogMode'))
+    databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', ('1' if flask.request.json['screenFlipped'] else '0', 'screenFlipped'))
+    databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', (flask.request.json['brightness'], 'brightness'))
+    databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', (flask.request.json['darkmodeBGColor'], 'darkmodeBGColor'))
+    databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', (flask.request.json['darkmodeFGColor'], 'darkmodeFGColor'))
+    databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', (flask.request.json['lightmodeBGColor'], 'lightmodeBGColor'))
+    databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', (flask.request.json['lightmodeFGColor'], 'lightmodeFGColor'))
     databaseConnection.commit()
 
     # return a 200 status code and a json response thats just a 200
