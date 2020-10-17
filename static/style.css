@@ -33,6 +33,11 @@ body{font-family:'DEFAULT_CUSTOM_FONT' !important;background-color:#f9fbfe !impo
 .settings-page-icon-and-toggle-pair-child{display:inline-block;color:#47535a;}
 .settings-switch-justify{margin-right:10px !important;margin-top:calc((60px - 32px) / 2);float:right;} /*the calc is the total height of the div minus the height of the slider divided by two (to center it vertically)*/
 #settings-page-submit-button{border-radius:20px;width:70%;margin-left:15%;background-color:transparent;color:#848484;border:1px solid #cccccc;height:40px;}
+.settings-color-selector{border:1px solid #cccccc !important;width:100px;height:100px;transform:translate(-50%, -50%);}
+.settings-color-selector-parent{overflow:hidden;width:40px;height:40px;border-radius:50%;} /*use a parent element to crop out the ugly sides of the color selector*/
+#settings-brightness-selector{width:150px;margin-top:calc((60px - 3px) / 2);opacity:0.7;background-color:#cccccc;-webkit-appearance:none;appearance:none;height:3px;outline:none;}
+#settings-brightness-selector:hover{opacity:1;}
+#settings-brightness-selector::-webkit-slider-thumb, #settings-brightness-selector::-moz-range-thumb{-webkit-appearance:none;appearance:none;width:10px;height:10px;cursor:pointer;background-color:#0b0b0b;box-shadow:2px 2px 2px #484848,4px 4px 4px #cccccc;}
 
 /*from https://www.w3schools.com/howto/howto_css_switch.asp*/
 .switch {position: relative;display: inline-block;width: 58px;height: 32px;}
