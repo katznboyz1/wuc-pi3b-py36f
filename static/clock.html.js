@@ -25,8 +25,7 @@ function updateClock() {
             let responseJSON = response.responseJSON;
             document.body.style.backgroundColor = responseJSON['darkMode'] ? responseJSON['darkmodeBGColor'] : responseJSON['lightmodeBGColor'];
             document.body.style.color = responseJSON['darkMode'] ? responseJSON['darkmodeFGColor'] : responseJSON['lightmodeFGColor'];
-            document.body.style.transform = responseJSON['screenFlipped'] ? 'rotate(180deg)' : '';
-            document.body.style.marginTop = responseJSON['screenFlipped'] ? '-100vh' : '';
+            document.body.style.transform = responseJSON['screenFlipped'] ? 'rotateX(180deg) scaleX(-1)' : '';
             document.getElementById('address').innerHTML = responseJSON['address'];
             document.getElementById('time-date-parent-container').style.display = responseJSON['analogMode'] ? 'none' : 'block';
             document.getElementById('analog-clock').style.display = responseJSON['analogMode'] ? 'block' : 'none';
