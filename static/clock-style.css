@@ -4,3 +4,4 @@ body{font-family:'DEFAULT_CUSTOM_FONT' !important;overflow:hidden;width:100vw;he
 #time-date-parent-container{text-align:center;margin-top:50vh;transform:translate(0vw, -50%);}
 #time{font-size:70px;}
 #date{font-size:25px;}
+#address{font-size:15px;opacity:0.2;}

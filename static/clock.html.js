@@ -24,6 +24,7 @@ function updateClock() {
             document.body.style.color = responseJSON['darkMode'] ? responseJSON['darkmodeFGColor'] : responseJSON['lightmodeFGColor'];
             document.body.style.transform = responseJSON['screenFlipped'] ? 'rotate(180deg)' : '';
             document.body.style.marginTop = responseJSON['screenFlipped'] ? '-100vh' : '';
+            document.getElementById('address').innerHTML = responseJSON['address'];
         }
     });
 }

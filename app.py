@@ -1,4 +1,4 @@
-import flask, json, sqlite3
+import flask, json, sqlite3, socket
 
 # the basic configuration for the app
 app = flask.Flask(__name__)
@@ -70,6 +70,7 @@ def flaskServeSettingsAPIDownload():
         'lightmodeBGColor':None,
         'lightmodeFGColor':None,
         'displayOn':None,
+        'address':str(socket.gethostbyname(socket.gethostname())),
     }
 
     # make this iterative
