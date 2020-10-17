@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+    <head>
+        <meta charset = 'utf-8'/>
+        <meta name = 'viewport' content = 'width = device-width, initial-scale = 1, shrink-to-fit = no'/>
+        <meta name  = 'description' content = 'PIClock'/>
+
+        <link rel = 'stylesheet' href = "{{ url_for('static', filename = 'bootstrap-4.1.3.min.css') }}"/>
+        <link rel = 'stylesheet' href = "{{ url_for('static', filename = 'clock-style.css') }}"/>
+
+        <script src = "{{ url_for('static', filename = 'jquery-3.5.1.min.js') }}"></script>
+        <script src = "{{ url_for('static', filename = 'popper-1.14.3.min.js') }}"></script>
+        <script src = "{{ url_for('static', filename = 'bootstrap-4.1.3.min.js') }}"></script>
+        <script src = "{{ url_for('static', filename = 'clock.html.js') }}"></script>
+
+        <title>PIClock</title>
+    </head>
+    <body>
+        <p id = 'time-date-parent-container'>
+            <span id = 'time'>
+                <span id = 'time-hour'>00</span>:
+                <span id = 'time-minute'>00</span>:
+                <span id = 'time-second'>00</span>
+            </span><br>
+            <span id = 'date'>January 1, 1970</span>
+        </p>
+    </body>
+</html>

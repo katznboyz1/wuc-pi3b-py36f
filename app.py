@@ -18,6 +18,11 @@ def flaskServeHomepage():
 def flaskServeSettings():
     return flask.render_template('settings.html', pageTitle = 'Settings')
 
+# the clock page (will only display the clock, doesnt need the header, and follows a different theme)
+@app.route('/clock', methods = ['GET', 'POST'])
+def flaskServeClock():
+    return flask.render_template('clock.html')
+
 # the api for the settings page (used to update settings) (post only)
 # returns the status code in the body, as well as the normal status code
 @app.route('/settingsAPI', methods = ['POST'])
