@@ -1,5 +1,7 @@
 function updateClock() {
     let date = new Date();
+
+    // ditigal clock update
     document.getElementById('time-hour').innerHTML = String(date.getHours());
     document.getElementById('time-minute').innerHTML = String(date.getMinutes());
     document.getElementById('time-second').innerHTML = String((date.getSeconds() < 10) ? '0' + String(date.getSeconds()) : date.getSeconds());
@@ -12,6 +14,7 @@ function updateClock() {
         ' ' +
         String(date.getFullYear())
     );
+
     $.ajax({ // no error handling, just let it fail silently as to not interrupt the kiosk
         'type':'POST',
         'dataType':'json',
@@ -25,6 +28,9 @@ function updateClock() {
             document.body.style.transform = responseJSON['screenFlipped'] ? 'rotate(180deg)' : '';
             document.body.style.marginTop = responseJSON['screenFlipped'] ? '-100vh' : '';
             document.getElementById('address').innerHTML = responseJSON['address'];
+            document.getElementById('time-date-parent-container').style.display = responseJSON['analogMode'] ? 'none' : 'block';
+            document.getElementById('analog-clock').style.display = responseJSON['analogMode'] ? 'block' : 'none';
+            foregroundColor = responseJSON['darkMode'] ? responseJSON['darkmodeFGColor'] : responseJSON['lightmodeFGColor'];
         }
     });
 }
