@@ -29,6 +29,7 @@ def flaskServeSettingsAPI():
     databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', ('1' if flask.request.json['darkMode'] else '0', 'darkMode'))
     databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', ('1' if flask.request.json['analogMode'] else '0', 'analogMode'))
     databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', ('1' if flask.request.json['screenFlipped'] else '0', 'screenFlipped'))
+    databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', ('1' if flask.request.json['displayOn'] else '0', 'displayOn'))
     databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', (flask.request.json['brightness'], 'brightness'))
     databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', (flask.request.json['darkmodeBGColor'], 'darkmodeBGColor'))
     databaseConnection.execute('UPDATE app_config SET config_data_content = ? WHERE config_data_title = ?', (flask.request.json['darkmodeFGColor'], 'darkmodeFGColor'))
@@ -53,7 +54,8 @@ def flaskServeSettingsAPIDownload():
         'darkmodeBGColor':None,
         'darkmodeFGColor':None,
         'lightmodeBGColor':None,
-        'lightmodeFGColor':None
+        'lightmodeFGColor':None,
+        'displayOn':None,
     }
 
     # make this iterative
@@ -64,6 +66,8 @@ def flaskServeSettingsAPIDownload():
     response['analogMode'] = True if str(databaseCursor.fetchall()[0][0]) == '1' else False
     databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('screenFlipped',))
     response['screenFlipped'] = True if str(databaseCursor.fetchall()[0][0]) == '1' else False
+    databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('displayOn',))
+    response['displayOn'] = True if str(databaseCursor.fetchall()[0][0]) == '1' else False
     databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('brightness',))
     # make sure that the program wont error out if the value cant be converted to an integer, and is also between 0 and 100
     try:

@@ -12,6 +12,7 @@ function sendSettingsUpdateRequest() {
             'analogMode':document.getElementById('settings-analog-mode-toggle').checked,
             'darkMode':document.getElementById('settings-dark-mode-toggle').checked,
             'screenFlipped':document.getElementById('settings-screen-flip-toggle').checked,
+            'displayOn':document.getElementById('settings-display-on-toggle').checked,
             'brightness':document.getElementById('settings-brightness-selector').value,
             'darkmodeBGColor':document.getElementById('settings-darkmode-background-color-selector').value,
             'darkmodeFGColor':document.getElementById('settings-darkmode-foreground-color-selector').value,
@@ -43,6 +44,7 @@ window.onload = function() {
             document.getElementById('settings-analog-mode-toggle').checked = responseJSON['analogMode'];
             document.getElementById('settings-dark-mode-toggle').checked = responseJSON['darkMode'];
             document.getElementById('settings-screen-flip-toggle').checked = responseJSON['screenFlipped'];
+            document.getElementById('settings-display-on-toggle').checked = responseJSON['displayOn'];
             document.getElementById('settings-brightness-selector').value = responseJSON['brightness'];
             document.getElementById('settings-darkmode-background-color-selector').value = responseJSON['darkmodeBGColor'];
             document.getElementById('settings-darkmode-foreground-color-selector').value = responseJSON['darkmodeFGColor'];
