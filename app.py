@@ -17,10 +17,9 @@ def brightnessControlThread():
             databaseCursor.execute('SELECT config_data_content FROM app_config WHERE config_data_title = ?', ('displayOn',))
             displayOn = True if str(databaseCursor.fetchall()[0][0]) == '1' else False
             if (brightnessLevel >= 0 and brightnessLevel <= 100 and displayOn):
-                os.system('gpio pwmc {}'.format(brightnessLevel * 10))
+                os.system('gpio pwmc 18 {}'.format(brightnessLevel * 10))
             elif (not displayOn):
-                os.system('gpio pwmc 0')
-            os.system('sudo sh -c \'echo "0" > /sys/class/backlight/soc\:backlight/brightness\'')
+                os.system('gpio pwmc 18 0')
         except IOError:
             pass
 
