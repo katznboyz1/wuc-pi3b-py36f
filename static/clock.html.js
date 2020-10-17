@@ -3,7 +3,7 @@ function updateClock() {
 
     // ditigal clock update
     document.getElementById('time-hour').innerHTML = String(date.getHours());
-    document.getElementById('time-minute').innerHTML = String(date.getMinutes());
+    document.getElementById('time-minute').innerHTML = String((date.getMinutes() < 10) ? '0' + String(date.getMinutes()) : date.getMinutes());
     document.getElementById('time-second').innerHTML = String((date.getSeconds() < 10) ? '0' + String(date.getSeconds()) : date.getSeconds());
     document.getElementById('date').innerHTML = String(
         ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][date.getDay()] +

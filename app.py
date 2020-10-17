@@ -1,5 +1,17 @@
 import flask, json, sqlite3, socket
 
+# a function from https://stackoverflow.com/a/28950776 to get the ip address of the machine
+def getIP():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        sock.connect(('10.255.255.255', 1))
+        ip = sock.getsockname()[0]
+    except:
+        ip = '127.0.0.1'
+    finally:
+        sock.close()
+    return ip
+
 # the basic configuration for the app
 app = flask.Flask(__name__)
 app.config['SESSION_PERMANENT'] = True
@@ -70,7 +82,7 @@ def flaskServeSettingsAPIDownload():
         'lightmodeBGColor':None,
         'lightmodeFGColor':None,
         'displayOn':None,
-        'address':str(socket.gethostbyname(socket.gethostname())),
+        'address':getIP(),
     }
 
     # make this iterative
