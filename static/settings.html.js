@@ -20,7 +20,7 @@ function sendSettingsUpdateRequest() {
             'lightmodeFGColor':document.getElementById('settings-lightmode-foreground-color-selector').value,
         }),
         'error':sendSettingsUpdateRequestError,
-        'timeout':1000, //make sure that if the server is down then this will fail
+        'timeout':5000, //make sure that if the server is down then this will fail
         'beforeSend':function() {
             document.getElementById('loading-screen').style.display = 'block';
         },'complete':function() {

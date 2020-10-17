@@ -21,7 +21,7 @@ function toggleClockOnOff(updateServer) {
             'contentType':'application/json',
             'data':JSON.stringify([isClockOn]),
             'error':networkError,
-            'timeout':1000, //make sure that if the server is down then this will fail
+            'timeout':5000, //make sure that if the server is down then this will fail
             'beforeSend':function() {
                 document.getElementById('loading-screen').style.display = 'block';
             },'complete':function() {
@@ -37,7 +37,7 @@ window.onload = function() {
         'dataType':'json',
         'url':'/settingsAPIDownload.json',
         'error':networkError,
-        'timeout':1000, //make sure that if the server is down then this will fail
+        'timeout':5000, //make sure that if the server is down then this will fail
         'beforeSend':function() {
             document.getElementById('loading-screen').style.display = 'block';
         },'complete':function(response) {
