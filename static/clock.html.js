@@ -4,7 +4,7 @@ function updateClock() {
     let date = new Date();
 
     // ditigal clock update
-    document.getElementById('time-hour').innerHTML = _24HRTime ? String(date.getHours()) : String(date.getHours() % 12);
+    document.getElementById('time-hour').innerHTML = _24HRTime ? String((date.getHours() < 10) ? '0' + String(date.getHours()) : date.getHours()) : (date.getHours() == 0) ? '12' : String(date.getHours() % 12);
     document.getElementById('time-minute').innerHTML = String((date.getMinutes() < 10) ? '0' + String(date.getMinutes()) : date.getMinutes());
     document.getElementById('time-second').innerHTML = String((date.getSeconds() < 10) ? '0' + String(date.getSeconds()) : date.getSeconds());
     document.getElementById('time-am-pm').innerHTML = !_24HRTime ? String((date.getHours() >= 12) ? 'PM' : 'AM') : '';
