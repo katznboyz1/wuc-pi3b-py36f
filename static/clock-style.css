@@ -1,10 +1,13 @@
 @font-face{font-family:'DEFAULT_CUSTOM_FONT';src:url('./notosansjp-medium.otf');}
 body{font-family:'DEFAULT_CUSTOM_FONT' !important;overflow:hidden;width:100vw;height:100vh;margin:0;padding:0;}
 
-#time-date-parent-container{text-align:center;margin-top:50vh;transform:translate(0vw, -50%);position:absolute;top:0px;left:0px;width:100vw;}
+#time-date-parent-container{text-align:center;margin-top:50vh;transform:translate(0vw, -50%);position:absolute;top:0px;left:0px;width:100vw;display:none;}
 #time{font-size:14vw;}
 #date{font-size:7vw;}
 #address{font-size:15px;opacity:0.2;}
 
-#analog-clock{position:absolute;top:0px;left:0px;width:100vw;height:100vh;}
+#analog-clock{position:absolute;top:0px;left:0px;width:100vw;height:100vh;display:none;}
 #clock-canvas{width:300px;height:300px;background-color:transparent;position:absolute;top:50vh;left:50vw;transform:translate(-50%, -50%);}
+
+#loading-screen{position:fixed;top:0px;left:0px;width:100vw;height:100vh;background-color:rgba(0, 0, 0, 0);display:block;}
+#loading-screen-gif{width:20%;height:auto;max-width:300px;top:50vh;left:50vw;transform:translate(-50%, -50%);position:absolute;}

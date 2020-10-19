@@ -9,7 +9,7 @@ function sendSettingsUpdateRequest() {
         'dataType':'json',
         'contentType':'application/json',
         'data':JSON.stringify({
-            //'analogMode':document.getElementById('settings-analog-mode-toggle').checked,
+            'analogMode':document.getElementById('settings-analog-mode-toggle').checked,
             'darkMode':document.getElementById('settings-dark-mode-toggle').checked,
             'screenFlipped':document.getElementById('settings-screen-flip-toggle').checked,
             'displayOn':document.getElementById('settings-display-on-toggle').checked,
@@ -36,13 +36,13 @@ window.onload = function() {
         'dataType':'json',
         'url':'/settingsAPIDownload.json',
         'error':sendSettingsUpdateRequestError,
-        'timeout':1000, //make sure that if the server is down then this will fail
+        'timeout':5000, //make sure that if the server is down then this will fail
         'beforeSend':function() {
             document.getElementById('loading-screen').style.display = 'block';
         },'complete':function(response) {
             document.getElementById('loading-screen').style.display = 'none';
             let responseJSON = response.responseJSON;
-            //document.getElementById('settings-analog-mode-toggle').checked = responseJSON['analogMode'];
+            document.getElementById('settings-analog-mode-toggle').checked = responseJSON['analogMode'];
             document.getElementById('settings-dark-mode-toggle').checked = responseJSON['darkMode'];
             document.getElementById('settings-screen-flip-toggle').checked = responseJSON['screenFlipped'];
             document.getElementById('settings-display-on-toggle').checked = responseJSON['displayOn'];
