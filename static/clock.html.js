@@ -47,7 +47,7 @@ function updateClock() {
     let clockRadius = canvas.width / 2;
     drawAngledCanvasLine(canvas.width / 2, canvas.height / 2, ctx, clockRadius * 1, ((date.getSeconds() / 60) * 360), FGColor);
     drawAngledCanvasLine(canvas.width / 2, canvas.height / 2, ctx, clockRadius * 0.75, (date.getMinutes() * 6), FGColor);
-    drawAngledCanvasLine(canvas.width / 2, canvas.height / 2, ctx, clockRadius * 0.65, (((date.getHours() % 12) / 12) * 360), FGColor);
+    drawAngledCanvasLine(canvas.width / 2, canvas.height / 2, ctx, clockRadius * 0.5, (((date.getHours() % 12) / 12) * 360), FGColor);
 
     // draw the clock ticks for the analog clock
     for (tick = 0; tick < 60; tick++) {
