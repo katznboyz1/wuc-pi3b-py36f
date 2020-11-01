@@ -1,6 +1,6 @@
 var _24HRTime = false;
 
-function calculateAngledLineEdge(originX, originY, radius, degrees) {
+function calculateAngledLineEdge(originX, originY, radius, degrees) { // from https://stackoverflow.com/a/23598710
     degrees -= 90;
     return [
         originX + radius * Math.cos(Math.PI * degrees / 180.0),
@@ -12,7 +12,7 @@ function drawAngledCanvasLine(originX, originY, ctx, radius, angleDegrees, color
     ctx.strokeStyle = color;
     let endsOfLines = calculateAngledLineEdge(originX, originY, radius, angleDegrees);
     ctx.moveTo(originX, originY);
-    ctx.lineTo(endsOfLines[0], endsOfLines[1]); // from https://stackoverflow.com/a/23598710
+    ctx.lineTo(endsOfLines[0], endsOfLines[1]);
     ctx.stroke();
     ctx.strokeStyle = 'white';
     return endsOfLines;
@@ -22,7 +22,7 @@ function updateClock() {
     let date = new Date();
 
     // ditigal clock update
-    document.getElementById('time-hour').innerHTML = _24HRTime ? String((date.getHours() < 10) ? '0' + String(date.getHours()) : date.getHours()) : String((date.getHours() == 0 || date.getHours() == 12) ? '12' : String(date.getHours() % 12))
+    document.getElementById('time-hour').innerHTML = _24HRTime ? String((date.getHours() < 10) ? '0' + String(date.getHours()) : date.getHours()) : String((date.getHours() == 0 || date.getHours() == 12) ? '12' : String(date.getHours() % 12));
     document.getElementById('time-minute').innerHTML = String((date.getMinutes() < 10) ? '0' + String(date.getMinutes()) : date.getMinutes());
     document.getElementById('time-second').innerHTML = String((date.getSeconds() < 10) ? '0' + String(date.getSeconds()) : date.getSeconds());
     document.getElementById('time-am-pm').innerHTML = !_24HRTime ? String((date.getHours() >= 12) ? 'PM' : 'AM') : '';

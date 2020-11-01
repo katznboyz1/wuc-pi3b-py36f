@@ -40,14 +40,14 @@ body{font-family:'DEFAULT_CUSTOM_FONT' !important;background-color:#f9fbfe !impo
 #settings-brightness-selector::-webkit-slider-thumb, #settings-brightness-selector::-moz-range-thumb{-webkit-appearance:none;appearance:none;width:10px;height:10px;cursor:pointer;background-color:#0b0b0b;box-shadow:2px 2px 2px #484848,4px 4px 4px #cccccc;}
 
 /*from https://www.w3schools.com/howto/howto_css_switch.asp*/
-.switch {position: relative;display: inline-block;width: 58px;height: 32px;}
-.switch input { opacity: 0;width: 0;height: 0;}
-.slider {position: absolute;cursor: pointer;top: 0;left: 0;right: 0;bottom: 0;background-color: #ccc;-webkit-transition: .4s;transition: .4s;}
-.slider:before {position: absolute;content: "";height: 28px;width: 28px;left: 2px;bottom: 2px;background-color: white;-webkit-transition: .4s;transition: .4s;box-shadow:2px 2px 6px #5c5c5c,4px 4px 6px #bfc1c9 !important;}
-input:checked + .slider {background-color: #2196F3;}
-input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transform: translateX(26px);transform: translateX(26px);}
-.slider.round {border-radius: 34px;}
-.slider.round:before {border-radius: 50%;}
+.switch{position: relative;display: inline-block;width: 58px;height: 32px;}
+.switch input{ opacity: 0;width: 0;height: 0;}
+.slider{position: absolute;cursor: pointer;top: 0;left: 0;right: 0;bottom: 0;background-color: #ccc;-webkit-transition: .4s;transition: .4s;}
+.slider:before{position: absolute;content: "";height: 28px;width: 28px;left: 2px;bottom: 2px;background-color: white;-webkit-transition: .4s;transition: .4s;box-shadow:2px 2px 6px #5c5c5c,4px 4px 6px #bfc1c9 !important;}
+input:checked + .slider{background-color: #2196F3;}
+input:checked + .slider:before{-webkit-transform: translateX(26px);-ms-transform: translateX(26px);transform: translateX(26px);}
+.slider.round{border-radius: 34px;}
+.slider.round:before{border-radius: 50%;}
 
 /*use multiple box shadows to create a gradient (third argument is blur radius)*/
 .shadow{
