@@ -21,7 +21,6 @@ def brightnessControlThread():
                 os.system('gpio -g pwm 18 {}'.format(brightnessLevel * 10))
             elif (not displayOn):
                 os.system('gpio -g pwm 18 0')
-            print('a')
         except IOError:
             pass
 
