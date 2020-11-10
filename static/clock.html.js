@@ -30,10 +30,10 @@ function updateClock() {
     document.getElementById('date').innerHTML = String(
         ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][date.getDay()] +
         ' ' +
-        String(date.getDate()) +
-        ', ' +
         ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][date.getMonth()] +
         ' ' +
+        String(date.getDate()) +
+        ', ' +
         String(date.getFullYear())
     );
 
