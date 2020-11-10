@@ -1,0 +1,15 @@
+[Unit]
+Description=PIClock Gunicorn Server
+Wants=graphical.target
+After=graphical.target
+
+[Service]
+Environment=XAUTHORITY=/home/pi/.Xauthority
+Type=simple
+ExecStart=/bin/bash /home/pi/wuc-pi3b-py36f/services/gunicorn.sh
+Restart=on-abort
+User=pi
+Group=root
+
+[Install]
+WantedBy=graphical.target

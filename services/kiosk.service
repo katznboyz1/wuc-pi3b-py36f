@@ -1,0 +1,16 @@
+[Unit]
+Description=Chromium Kiosk Display
+Wants=graphical.target
+After=graphical.target
+
+[Service]
+Environment=DISPLAY=:0.0
+Environment=XAUTHORITY=/home/pi/.Xauthority
+Type=simple
+ExecStart=/bin/bash /home/pi/wuc-pi3b-py36f/services/kiosk.sh
+Restart=on-abort
+User=pi
+Group=root
+
+[Install]
+WantedBy=graphical.target
